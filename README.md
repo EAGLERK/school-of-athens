@@ -10,6 +10,10 @@ cd build && npm install && npm run serve    # http://localhost:8123
 
 Any static host works. Serve `.bin` files as-is (no transcoding).
 
+### Vercel
+
+`vercel.json` serves `site/` directly: no install, no build. Import the repo at vercel.com/new (framework preset "Other", leave every setting as is) and each push to `main` redeploys. Film, textures, audio and fonts are cached for a day at the edge, then revalidated; `index.html` and `js/app.min.js` are not cached, so a new deploy shows up straight away. Run `npm run bundle` and commit `site/js/app.min.js` after changing the JS: Vercel does not build it.
+
 ## Quality
 
 Seven levels, picked from the GPU, pointer type and memory, then stepped down live if frames drop under ~38 fps. Pin a level with `?q=0` (everything) to `?q=6` (bare). Portrait phones always get the 720×1280 film; levels 0–2 get the 1080p film, 3–6 the 720p one.
