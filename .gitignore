@@ -1,0 +1,8 @@
+node_modules/
+build/out/
+build/prev/
+build/film.log
+build/source/fg.png
+build/source/bg.png
+__pycache__/
+.DS_Store

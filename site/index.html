@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The School of Athens · The Death of Socrates</title>
+<meta name="description" content="Raphael's The School of Athens (1509–11) and Jacques-Louis David's The Death of Socrates (1787), told as one continuous scroll film.">
+<meta property="og:title" content="The School of Athens · The Death of Socrates">
+<meta property="og:description" content="Two paintings, one scroll: from Raphael's fresco in the Vatican to David's cell in Athens, 399 BC.">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="theme-color" content="#0f0d0b">
+<link rel="preload" href="fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-garamond-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-loading">
+
+<div id="stage" aria-hidden="true">
+  <canvas id="room"></canvas>
+  <canvas id="film"></canvas>
+  <div id="veil"></div>
+</div>
+
+<!-- preloader -->
+<div id="loader" role="dialog" aria-modal="true" aria-labelledby="loader-title">
+  <div class="loader-inner">
+    <p class="kicker">Raphael · David</p>
+    <h1 id="loader-title">The School of Athens</h1>
+    <p class="count" aria-live="polite"><span id="count">000</span></p>
+    <button id="enter" type="button" disabled aria-label="Enter (loading)">
+      <svg viewBox="0 0 200 120" preserveAspectRatio="none" aria-hidden="true">
+        <path id="enter-frame" pathLength="1" d="M4 116 V58 A96 54 0 0 1 196 58 V116 Z"/>
+      </svg>
+      <span>Enter</span>
+    </button>
+    <p class="hint">Scroll to walk through. Sound on.</p>
+  </div>
+</div>
+
+<header id="top">
+  <a class="mark" href="#" data-chapter="0">The School of Athens <i>&amp;</i> The Death of Socrates</a>
+  <div class="tools">
+    <button id="open-card" type="button" aria-haspopup="dialog">The paintings</button>
+    <button id="open-rail" type="button" aria-haspopup="true" aria-expanded="false">Chapters</button>
+    <button id="sound" type="button" aria-pressed="true" aria-label="Sound"><span class="bars"><i></i><i></i><i></i><i></i></span></button>
+  </div>
+</header>
+
+<nav id="rail" aria-label="Chapters">
+  <div class="rail-progress"><i id="rail-bar"></i></div>
+  <ol>
+    <li><button data-chapter="0"><b>I</b><span>The stanza</span></button></li>
+    <li><button data-chapter="1"><b>II</b><span>The School of Athens</span></button></li>
+    <li><button data-chapter="2"><b>III</b><span>Plato and Aristotle</span></button></li>
+    <li><button data-chapter="3"><b>IV</b><span>The painted halls</span></button></li>
+    <li><button data-chapter="4"><b>V</b><span>The passage</span></button></li>
+    <li><button data-chapter="5"><b>VI</b><span>The Death of Socrates</span></button></li>
+    <li><button data-chapter="6"><b>VII</b><span>Night</span></button></li>
+  </ol>
+  <p class="rail-now" id="rail-now">I · The stanza</p>
+</nav>
+
+<!-- the story: each beat shows over a stretch of the scroll (p: page progress, f: film frame) -->
+<main id="beats">
+  <section class="beat left" data-at="p:0.004-0.052">
+    <p class="kicker">A Renaissance stanza</p>
+    <h2>Rome, 1508</h2>
+    <p>Pope Julius II brings a twenty-five-year-old Raphael to Rome to paint his private rooms. The first, the Stanza della Segnatura, will take him until 1511.</p>
+  </section>
+  <section class="beat right" data-at="p:0.066-0.118">
+    <p>Each wall gets one branch of knowledge: Theology, Poetry, Justice. The fourth is Philosophy, and Raphael fills it with more than fifty thinkers who never shared a room.</p>
+  </section>
+
+  <section class="beat title center" data-at="f:6-56">
+    <p class="kicker">Raphael · 1509–1511 · fresco</p>
+    <h2>The School of Athens</h2>
+  </section>
+  <section class="beat left" data-at="f:70-124">
+    <h3>Plato and Aristotle</h3>
+    <p>Plato points up, to the world of ideas, his <i>Timaeus</i> under his arm. Aristotle holds his <i>Ethics</i> and turns his palm to the earth. Raphael is often said to have given Plato the face of Leonardo da Vinci.</p>
+  </section>
+  <section class="beat right" data-at="f:136-196">
+    <h3>The painted halls</h3>
+    <p>Every line of the floor and the coffered vaults runs to a point between the two men. Raphael built the hall from Bramante's plans for the new St Peter's, a church that would take another century to finish.</p>
+  </section>
+
+  <section class="beat center dark" data-at="f:236-318">
+    <p class="kicker">Athens, 399 BC</p>
+    <h3>Almost two thousand years earlier</h3>
+    <p>Before Plato wrote a word, his teacher was put on trial. Socrates, seventy years old, was convicted of impiety and of corrupting the young, and sentenced to die by hemlock.</p>
+  </section>
+
+  <section class="beat title center" data-at="f:332-372">
+    <p class="kicker">Jacques-Louis David · 1787 · oil on canvas</p>
+    <h2>The Death of Socrates</h2>
+  </section>
+  <section class="beat left" data-at="f:374-420">
+    <h3>Still teaching</h3>
+    <p>His friends had arranged an escape. He refused. David has him reach for the cup without looking at it, one finger raised, still arguing for the immortality of the soul.</p>
+  </section>
+  <section class="beat right quote" data-at="f:438-468">
+    <blockquote>“Crito, we owe a cock to Asclepius. Pay it and do not neglect it.”</blockquote>
+    <p class="cite">His last words, in Plato's <i>Phaedo</i></p>
+  </section>
+  <section class="beat right" data-at="f:474-500">
+    <h3>Plato, at the foot of the bed</h3>
+    <p>David seats him there, old and turned away. In the <i>Phaedo</i> Plato records that he was ill that day and not present. He was under thirty.</p>
+  </section>
+  <section class="beat left" data-at="f:500-526">
+    <p>On the stair, his wife Xanthippe is led away. The jailer who hands over the hemlock cannot look.</p>
+  </section>
+
+  <section class="beat quote center night" data-at="p:0.884-1.01">
+    <blockquote>“The unexamined life is not worth living.”</blockquote>
+    <p class="cite">Socrates at his trial · Plato, <i>Apology</i> 38a</p>
+  </section>
+  <section class="beat end center" data-at="p:0.955-1.01">
+    <button id="again" type="button">Watch again</button>
+    <p class="credits">Raphael, <i>The School of Athens</i>, 1509–1511, Apostolic Palace, Vatican.<br>Jacques-Louis David, <i>The Death of Socrates</i>, 1787, The Metropolitan Museum of Art, New York.<br>Both public domain. The room is an invention.</p>
+  </section>
+</main>
+
+<div id="scroll" aria-hidden="true"></div>
+
+<div id="touch" aria-hidden="true">Please do not touch!</div>
+
+<dialog id="card" aria-labelledby="card-title">
+  <form method="dialog" class="card-close"><button aria-label="Close">×</button></form>
+  <h2 id="card-title" class="visually-hidden">The paintings</h2>
+  <div class="tabs" role="tablist">
+    <button role="tab" id="tab-athens" aria-controls="pane-athens" aria-selected="true">The School of Athens</button>
+    <button role="tab" id="tab-socrates" aria-controls="pane-socrates" aria-selected="false" tabindex="-1">The Death of Socrates</button>
+  </div>
+
+  <article id="pane-athens" role="tabpanel" aria-labelledby="tab-athens">
+    <img src="assets/card-athens.webp" width="1000" height="776" alt="The School of Athens by Raphael: a crowd of philosophers on the steps of a vaulted hall, Plato and Aristotle at the centre." loading="lazy">
+    <dl>
+      <dt>Artist</dt><dd>Raphael (Raffaello Sanzio da Urbino), 1483–1520</dd>
+      <dt>Date</dt><dd>1509–1511</dd>
+      <dt>Medium</dt><dd>Fresco</dd>
+      <dt>Size</dt><dd>about 500 × 770 cm</dd>
+      <dt>Where</dt><dd>Stanza della Segnatura, Apostolic Palace, Vatican City</dd>
+    </dl>
+    <p>Pope Julius II brought Raphael to Rome in 1508 to decorate his private apartments. The Stanza della Segnatura, probably meant as Julius's library, was the first room he painted. Its walls stand for Theology (the <i>Disputa</i>), Poetry (<i>Parnassus</i>), Justice, and Philosophy: this wall.</p>
+    <p>Plato, pointing upward with his <i>Timaeus</i>, and Aristotle, palm toward the earth with his <i>Ethics</i>, walk out of the vanishing point together. Plato is commonly read as a portrait of Leonardo da Vinci. Euclid, bending over a slate with compasses at lower right, is said to be the architect Bramante; Raphael put himself at the far right edge, looking out.</p>
+    <p>Heraclitus, brooding on the steps with his elbow on a block, does not appear in Raphael's full-size cartoon, now in the Biblioteca Ambrosiana in Milan. He was added late, and is often taken as a portrait of Michelangelo, who was painting the Sistine Chapel ceiling a short walk away.</p>
+    <p>The architecture follows Bramante's designs for the new St Peter's: coffered barrel vaults, a dome, statues of Apollo and Athena in the niches. The title came later; Raphael never called it <i>The School of Athens</i>.</p>
+  </article>
+
+  <article id="pane-socrates" role="tabpanel" aria-labelledby="tab-socrates" hidden>
+    <img src="assets/card-socrates.webp" width="1000" height="657" alt="The Death of Socrates by Jacques-Louis David: Socrates on his bed reaches for the cup of hemlock, one finger raised, among grieving followers." loading="lazy">
+    <dl>
+      <dt>Artist</dt><dd>Jacques-Louis David, 1748–1825</dd>
+      <dt>Date</dt><dd>1787</dd>
+      <dt>Medium</dt><dd>Oil on canvas</dd>
+      <dt>Size</dt><dd>129.5 × 196.2 cm</dd>
+      <dt>Where</dt><dd>The Metropolitan Museum of Art, New York (Catharine Lorillard Wolfe Collection, Wolfe Fund, 1931; 31.45)</dd>
+    </dl>
+    <p>In 399 BC an Athenian jury convicted Socrates of impiety and of corrupting the young. He refused to flee and drank hemlock in prison. David takes the scene from Plato's <i>Phaedo</i>, which records Socrates' last conversation, about the immortality of the soul.</p>
+    <p>The picture was commissioned by Charles-Michel Trudaine de la Sablière and shown at the Paris Salon of 1787, two years before the Revolution. Sir Joshua Reynolds called it the greatest effort of art since the Sistine Chapel and the Stanze of Raphael.</p>
+    <p>David changes the record where it suits him. Socrates reaches for the cup while still talking. Plato, who says in the <i>Phaedo</i> that he was ill and absent, sits at the foot of the bed as an old man, though he was under thirty. Crito holds his teacher's thigh; Xanthippe, sent away earlier in the text, climbs the stair in the background.</p>
+    <p>The Met acquired it in 1931.</p>
+  </article>
+</dialog>
+
+<noscript><p class="noscript">This page is a scroll film and needs JavaScript. Raphael, <i>The School of Athens</i> (1509–11); Jacques-Louis David, <i>The Death of Socrates</i> (1787).</p></noscript>
+
+<script type="module" src="js/app.min.js"></script>
+</body>
+</html>

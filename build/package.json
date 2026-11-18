@@ -1,0 +1,23 @@
+{
+  "name": "school-of-athens-film",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "film": "python3 layers.py && python3 film.py && python3 pack.py",
+    "assets": "python3 assets.py",
+    "bundle": "NODE_PATH=$PWD/node_modules esbuild ../site/js/main.js --bundle --minify --format=esm --target=es2020 --outfile=../site/js/app.min.js",
+    "watch": "NODE_PATH=$PWD/node_modules esbuild ../site/js/main.js --bundle --format=esm --target=es2020 --sourcemap --outfile=../site/js/app.min.js --watch",
+    "serve": "python3 -m http.server 8123 -d ../site",
+    "build": "npm run assets && npm run film && npm run bundle"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "private": true
+}
